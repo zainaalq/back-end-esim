@@ -1,2 +1,2 @@
-# open esimerkki
-main-harra init-versio
+# Opettajan tuntiesimerkit
+main-harra, init-versio

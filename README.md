@@ -1,4 +1,4 @@
-# Opettajan tuntiesimerkit
+# Opettajan tuntiesimerkit + kotitehtävä
 (main-harjoitus, init-versio)
 
 1) GET / (server root) => palauttaa tekstin: "Welcome to my REST API!"

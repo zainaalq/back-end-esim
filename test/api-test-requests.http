@@ -1,0 +1,43 @@
+
+
+## get server root => "Welcome to my REST API!"
+GET http://localhost:3000/
+
+
+## /items mock data
+
+### GET /items  => palauttaa kaikki itemit
+GET http://localhost:3000/items
+
+### GET item by id => paluttaa yksittäisen itemi
+GET http://localhost:3000/items/27
+
+
+
+###add new items
+POST http://localhost:3000/items
+Content-Type: application/json
+
+{
+  "name": "New Item"
+}
+
+### Update existing item
+PUT http://localhost:3000/items/10
+content-type: application/json
+
+{
+  "name": "New name for the item"
+}
+
+### Delete existing item
+DELETE http://localhost:3000/items/27
+
+
+
+### GET random item 
+GET http://localhost:3000/items/random
+
+
+### GET items count
+GET http://localhost:3000/items/count

@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(items));
 
-  // ✅ GET random item (SIIRRETTY TÄHÄN)
+  // GET random item 
   } else if (req.method === 'GET' && req.url === '/items/random') {
     if (items.length > 0) {
       const randomItem = items[Math.floor(Math.random() * items.length)];
@@ -31,12 +31,12 @@ const server = http.createServer((req, res) => {
       res.end('No items available');
     }
 
-  // ✅ GET items count (SIIRRETTY TÄHÄN)
+  // GET items count
   } else if (req.method === 'GET' && req.url === '/items/count') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ count: items.length }));
 
-  // ✅ GET item by ID (PIDETTY VIIMEISENÄ)
+  // GET item by ID 
   } else if (req.method === 'GET' && req.url.split('/')[1] === 'items') {
     const requestedID = parseInt(req.url.split('/')[2]);
     const foundItem = items.find(item => item.id === requestedID);

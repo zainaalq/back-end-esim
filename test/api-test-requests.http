@@ -1,6 +1,6 @@
 
 
-## get server root => "Welcome to my REST API!"
+### get server root => "Welcome to my REST API!"
 GET http://localhost:3000/
 
 

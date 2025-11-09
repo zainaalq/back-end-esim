@@ -1,29 +1,92 @@
+# UCAD example API test http request
 
 
-## get server root => "Welcome to my REST API!"
+
+### GET server root
 GET http://localhost:3000/
 
 
-## /items mock data
+## /media resource
 
-### GET /items  => palauttaa kaikki itemit
-GET http://localhost:3000/items
+### GET /media
+GET http://localhost:3000/api/media
 
-### GET item by id => paluttaa yksittäisen itemi
-GET http://localhost:3000/items/27
+### GET media item by id
+GET http://localhost:3000/api/media/9590
+
+### Add new media item
+POST http://localhost:3000/api/media
+content-type: application/json
+
+{
+  "filename": "jokukuva.jpg",
+  "title": "New image",
+  "description": "The description of the new image",
+  "user_id": 305,
+  "media_type": "image/jpeg"
+}
+
+### Update existing media item
+PUT http://localhost:3000/api/media/27
+content-type: application/json
+
+{
+  "title": "Basement modified",
+  "description": "Some new description",
+}
+
+### Delete existing media item
+DELETE http://localhost:3000/api/media/9590
+
+######################
+
+## /users resource
+
+### GET /users
+GET http://localhost:3000/api/users
+
+### GET user by id
+GET http://localhost:3000/api/users/27
+
+### Add new user
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+  "TODO": "FIX THIS REQUEST" 
+}
+
+### Update existing user
+PUT http://localhost:3000/api/users/27
+content-type: application/json
+
+{
+  "TODO": "FIX THIS REQUEST" 
+}
+
+### Delete existing user
+DELETE http://localhost:3000/api/users/27
 
 
+##############################3
 
-###add new items
-POST http://localhost:3000/items
-Content-Type: application/json
+## /items dummy resource mock data
+### GET /items
+GET http://localhost:3000/api/items
+
+### GET item by id
+GET http://localhost:3000/api/items/27
+
+### Add new item
+POST http://localhost:3000/api/items
+content-type: application/json
 
 {
   "name": "New Item"
 }
 
 ### Update existing item
-PUT http://localhost:3000/items/10
+PUT http://localhost:3000/api/items/27
 content-type: application/json
 
 {
@@ -31,13 +94,4 @@ content-type: application/json
 }
 
 ### Delete existing item
-DELETE http://localhost:3000/items/27
-
-
-
-### GET random item 
-GET http://localhost:3000/items/random
-
-
-### GET items count
-GET http://localhost:3000/items/count
+DELETE http://localhost:3000/api/items/27

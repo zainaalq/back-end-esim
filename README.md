@@ -1,22 +1,48 @@
-# Opettajan tuntiesimerkit + kotitehtävä
-(main-harjoitus, init-versio)
+# Assignment 3A - Relational Databases
 
-1) GET / (server root) => palauttaa tekstin: "Welcome to my REST API!"
+1.  Käytin tunnilla opittuja asioita tämän tehtävän toteuttamiseen. Lisäsin sovellukseen kaksi kokonaan uutta taulua (Locations ja Bookings), joita ei ollut valmiissa esimerkeissä.
 
-2) GET /items => palauttaa kaikki itemit
+2. Testasin ja tarkistin, että taulut luotiin oikein ja näkyvät MariaDB-tietokannassa.
 
-3) GET /items/:id => palauttaa yksittäisen itemin ID:n perusteella
+3. Minulla oli aluksi paljon ongelmia MariaDB:n kanssa, koska en muistanut salasanaa. Sen selvittämiseen kului aikaa.
+Lisäksi minulla oli ongelma, jossa VS Code ei yhdistänyt SQL-tiedostoa MariaDB:hen, koska polkua ei tunnistettu oikein.
 
-4) POST /items => lisää uuden itemin
 
-5) PUT /items/:id => päivittää olemassa olevan itemin
+------------------------
+* SHOW DATABASES;
+* USE mediashare;
+* SHOW TABLES;
+![alt text](image-3.png)
+* DESCRIBE Users;
+![alt text](image-4.png)
+* DESCRIBE MediaItems;
+![alt text](image-5.png)
+* DESCRIBE Locations;
+![alt text](image-6.png)
+* DESCRIBE Bookings;
+![alt text](image-7.png)
 
-6) DELETE /items/:id => poistaa itemin
 
-* Lisäsin myös kaksi lisätoiminnallisuutta:
+-------------------------------------------
+näyttää data:
+* SELECT * FROM Users;
+![alt text](image-8.png)
+* SELECT * FROM MediaItems;
+![alt text](image-9.png)
+* SELECT * FROM Locations;
+![alt text](image-10.png)
+* SELECT * FROM Bookings;
+![alt text](image-11.png)
 
-- GET /items/random
-  => palauttaa satunnaisen itemin
+-----------------------------------
+Users — MediaItems:
+=> 1 käyttäjä voi omistaa monta mediaa
 
-- GET /items/count
-  => laskee ja palauttaa, kuinka monta itemiä listassa on
+Users — Bookings:
+=> 1 käyttäjä voi tehdä monta varausta
+
+
+Locations — Bookings:
+=> 1 paikka voi olla varattu monta kertaa
+
+![alt text](image-12.png)

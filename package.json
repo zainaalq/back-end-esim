@@ -2,7 +2,7 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "Node.js backend example application",
-  "type":"module",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -18,5 +18,9 @@
     "globals": "^16.4.0",
     "nodemon": "^3.1.10",
     "prettier": "3.6.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pug": "^3.0.3"
   }
 }

@@ -1,22 +1,27 @@
-# Opettajan tuntiesimerkit + kotitehtävä
-(main-harjoitus, init-versio)
+# Express
 
-1) GET / (server root) => palauttaa tekstin: "Welcome to my REST API!"
+- Express käytössä http-moduulin sijaan
+- Pug-template
+- REST API mock-datan avulla (users + media)
+- GET, POST ja DELETE endpointit API:lle 
+- JSON-muotoinen vastaus endpointien kautta
 
-2) GET /items => palauttaa kaikki itemit
 
-3) GET /items/:id => palauttaa yksittäisen itemin ID:n perusteella
+* Users API & Media API (REST API endpointit)
+- GET /api/media              /api/users
+- GET /api/media/:d          /api/users/:d
+- POST  api/media            /api/users
+- DELETE  /api/media/:id     /api/users/:d
 
-4) POST /items => lisää uuden itemin
 
-5) PUT /items/:id => päivittää olemassa olevan itemin
+Test:
 
-6) DELETE /items/:id => poistaa itemin
+* GET http://localhost:3000/api/media/9590
+![alt text](image.png)
 
-* Lisäsin myös kaksi lisätoiminnallisuutta:
+* GET http://localhost:3000/api/items/27
+![alt text](image-1.png)
 
-- GET /items/random
-  => palauttaa satunnaisen itemin
 
-- GET /items/count
-  => laskee ja palauttaa, kuinka monta itemiä listassa on
+* GET http://localhost:3000/api/users
+![alt text](image-2.png)

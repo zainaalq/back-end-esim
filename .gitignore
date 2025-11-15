@@ -1,1 +1,9 @@
 node_modules/
+
+
+# estä kaikki
+uploads/*
+#  sali ainostan tämä 
+!uploads/.gitkeep
+
+.env

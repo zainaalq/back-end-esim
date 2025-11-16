@@ -1,116 +1,109 @@
-# UCAD example API test http request
+# Assignment 4 – API Test File
 
-### Note: Install VSCode REST Client extension to use this file
 
-### GET server root
+
+# SERVER ROOT
+
+
 GET http://localhost:3000/
 
 
-## /media resource
 
-### GET /media
+# /media 
+
+
+### GET all media
 GET http://localhost:3000/api/media
 
-### GET media item by id
-GET http://localhost:3000/api/media/6
+### GET media by id
+GET http://localhost:3000/api/media/1
 
-### Add new media item
-POST http://localhost:3000/api/media
-content-type: application/json
-
-{
-  "filename": "jokukuva.jpg",
-  "title": "New image",
-  "description": "The description of the new image",
-  "user_id": 305,
-  "media_type": "image/jpeg"
-}
-
-### Add new media item including media file
+### POST media (file upload)
 POST http://localhost:3000/api/media
 Content-Type: multipart/form-data; boundary=----Boundary
 
 ------Boundary
 Content-Disposition: form-data; name="title"
 
-New cat image
+Test image
+------Boundary
+Content-Disposition: form-data; name="description"
+
+Uploaded with REST client
 ------Boundary
 Content-Disposition: form-data; name="user_id"
 
-2
+1
 ------Boundary
-Content-Disposition: form-data; name="file"; filename="image.png"
+Content-Disposition: form-data; name="file"; filename="test-cat.png"
 Content-Type: image/png
 
 < ./test-cat.png
 ------Boundary--
 
-### Update existing media item
-PUT http://localhost:3000/api/media/27
-content-type: application/json
+### PUT media by id
+PUT http://localhost:3000/api/media/1
+Content-Type: application/json
 
 {
-  "title": "Basement modified",
-  "description": "Some new description",
+  "title": "Updated title",
+  "description": "Updated description"
 }
 
-### Delete existing media item
-DELETE http://localhost:3000/api/media/9590
+### DELETE media by id
+DELETE http://localhost:3000/api/media/3
 
-######################
 
-## /users resource
 
-### GET /users
+# /users 
+
+
+### GET all users
 GET http://localhost:3000/api/users
 
 ### GET user by id
-GET http://localhost:3000/api/users/27
+GET http://localhost:3000/api/users/1
 
-### Add new user
+### POST new user
 POST http://localhost:3000/api/users
-content-type: application/json
+Content-Type: application/json
 
 {
-  "TODO": "FIX THIS REQUEST" 
+  "username": "newuser",
+  "email": "newuser@example.com",
+  "password": "pass123"
 }
 
-### Update existing user
-PUT http://localhost:3000/api/users/27
-content-type: application/json
+### PUT user by id
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
 
 {
-  "TODO": "FIX THIS REQUEST" 
+  "username": "updateduser",
+  "email": "updateduser@example.com"
 }
 
-### Delete existing user
-DELETE http://localhost:3000/api/users/27
+### DELETE user by id
+DELETE http://localhost:3000/api/users/3
 
 
-##############################3
+# /likes
 
-## /items dummy resource mock data
-### GET /items
-GET http://localhost:3000/api/items
 
-### GET item by id
-GET http://localhost:3000/api/items/27
+### GET likes for media
+GET http://localhost:3000/api/likes/media/1
 
-### Add new item
-POST http://localhost:3000/api/items
-content-type: application/json
+### GET likes for user
+GET http://localhost:3000/api/likes/user/1
+
+### POST like
+POST http://localhost:3000/api/likes
+Content-Type: application/json
 
 {
-  "name": "New Item"
+  "user_id": 1,
+  "media_id": 1
 }
 
-### Update existing item
-PUT http://localhost:3000/api/items/27
-content-type: application/json
-
-{
-  "name": "New name for the item"
-}
-
-### Delete existing item
-DELETE http://localhost:3000/api/items/27
+### DELETE like
+DELETE http://localhost:3000/api/likes/1

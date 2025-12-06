@@ -1,43 +1,109 @@
+# Assignment 4 – API Test File
 
 
-## get server root => "Welcome to my REST API!"
+
+# SERVER ROOT
+
+
 GET http://localhost:3000/
 
 
-## /items mock data
 
-### GET /items  => palauttaa kaikki itemit
-GET http://localhost:3000/items
-
-### GET item by id => paluttaa yksittäisen itemi
-GET http://localhost:3000/items/27
+# /media 
 
 
+### GET all media
+GET http://localhost:3000/api/media
 
-###add new items
-POST http://localhost:3000/items
+### GET media by id
+GET http://localhost:3000/api/media/1
+
+### POST media (file upload)
+POST http://localhost:3000/api/media
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="title"
+
+Test image
+------Boundary
+Content-Disposition: form-data; name="description"
+
+Uploaded with REST client
+------Boundary
+Content-Disposition: form-data; name="user_id"
+
+1
+------Boundary
+Content-Disposition: form-data; name="file"; filename="test-cat.png"
+Content-Type: image/png
+
+< ./test-cat.png
+------Boundary--
+
+### PUT media by id
+PUT http://localhost:3000/api/media/1
 Content-Type: application/json
 
 {
-  "name": "New Item"
+  "title": "Updated title",
+  "description": "Updated description"
 }
 
-### Update existing item
-PUT http://localhost:3000/items/10
-content-type: application/json
+### DELETE media by id
+DELETE http://localhost:3000/api/media/3
+
+
+
+# /users 
+
+
+### GET all users
+GET http://localhost:3000/api/users
+
+### GET user by id
+GET http://localhost:3000/api/users/1
+
+### POST new user
+POST http://localhost:3000/api/users
+Content-Type: application/json
 
 {
-  "name": "New name for the item"
+  "username": "newuser",
+  "email": "newuser@example.com",
+  "password": "pass123"
 }
 
-### Delete existing item
-DELETE http://localhost:3000/items/27
+### PUT user by id
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "username": "updateduser",
+  "email": "updateduser@example.com"
+}
+
+### DELETE user by id
+DELETE http://localhost:3000/api/users/3
 
 
-
-### GET random item 
-GET http://localhost:3000/items/random
+# /likes
 
 
-### GET items count
-GET http://localhost:3000/items/count
+### GET likes for media
+GET http://localhost:3000/api/likes/media/1
+
+### GET likes for user
+GET http://localhost:3000/api/likes/user/1
+
+### POST like
+POST http://localhost:3000/api/likes
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "media_id": 1
+}
+
+### DELETE like
+DELETE http://localhost:3000/api/likes/1
